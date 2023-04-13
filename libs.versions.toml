@@ -1,0 +1,286 @@
+[versions]
+
+minSdk = "24"
+targetSdk = "33"
+compileSdk = "33"
+kotlin = "1.8.10"
+
+# KSP depends on specific Kotlin version, so it must be upgraded together with Kotlin (disabled in Renovate)
+# https://repo.maven.apache.org/maven2/com/google/devtools/ksp/symbol-processing-gradle-plugin/
+kotlinSymbolProcessing = "1.7.20-1.0.7"
+
+# Compose compiler depends on specific Kotlin version, so it must be upgraded together with Kotlin (disabled in Renovate)
+# https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+kotlinCompilerExtensionVersion = "1.3.2"
+
+navigation = "2.5.3"
+testLogger = "3.2.0"
+coroutines = "1.6.4"
+retrofit = "2.9.0"
+okhttp = "4.10.0"
+koin = "3.3.2"
+coil = "2.2.2"
+# verison 2.6.0-alpha01 has collectAsStateWithLifecycle
+# https://issuetracker.google.com/issues/230557927?hl=id
+lifecycle = "2.6.0-alpha03"
+room = "2.5.0"
+serializationJson = "1.4.1"
+kotlinxSerializationConverter = "0.8.0"
+viewBindingPropertyDelegate = "1.5.6"
+timber = "5.0.1"
+constraintLayout = "2.1.4"
+appCompat = "1.6.1"
+recyclerView = "1.2.1"
+compose = "1.3.0"
+materialCompose = "1.0.0"
+material = "1.9.0-alpha02"
+lottie = "5.2.0"
+playCore = "1.10.3"
+coreKtx = "1.9.0"
+fragmentKtx = "1.5.5"
+# Info https://google.github.io/accompanist/flowlayout/
+# Repo https://oss.sonatype.org/content/repositories/snapshots/com/google/accompanist/accompanist-flowlayout/
+accompanistFlowLayout = "0.27.0"
+router = "1.5.2"
+rxAndroid = "3.0.2"
+rxJava = "3.1.5"
+rxJava2 = "2.2.0"
+rxAndroid2 = "2.0.2"
+refresh = "2.0.5"
+search = "1.0.0"
+flex = "3.0.0"
+banner = "3.5.11"
+pagerGrid = "1.1.7"
+imageView = "2.3.0"
+glide = "4.14.2"
+picasso = "2.71828"
+flexbox = "3.0.0"
+statusBar = "0.8.0"
+circularImage = "4.3.1"
+dateTimePicker = "0.6.2"
+pwdEditText = "V1.0.4"
+pwdKeyBoard = "2.0.0"
+agentWeb = "v5.0.6-androidx"
+moshi = "1.13.0"
+rxTools = "1.3.8"
+imagePicker = "3.0.0"
+permission = "4.9.2"
+permissionKtx = "1.1.4"
+pictureSeletor = "v3.11.0"
+pictureSeletorUcrop = "v3.10.9"
+longan = "1.1.1"
+eventBus = "1.8.0"
+picker = "4.1.11"
+gestureView = "2.8.3"
+photoView = "2.3.0"
+photoPreview = "2.4.5"
+zxing = "3.3.0"
+zxingEmbedded = "4.3.0"
+stateLayout = "1.3.13"
+brv = "1.3.90"
+
+detekt = "1.22.0"
+androidGradlePlugin = "7.4.1"
+
+# Test versionsandroid-junit5-plugin-dsl
+
+junit = "5.9.2"
+androidJUnit5 = "1.8.2.1"
+kluent = "1.72"
+testRunner = "1.5.2"
+mockk = "1.13.4"
+espresso = "3.5.1"
+coreTesting = "2.1.0"
+
+tencent = "+"
+alipayv = "15.8.11"
+
+[libraries]
+
+# kotlin
+kotlin = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+
+## 1、网络请求： 选择retrofit + okhttp3 + moshi
+
+# ScalarsConverterFactory 是 Retrofit2 中用于将请求结果转换为字符串或其他基本类型的转换器
+# MoshiConverterFactory 是 JSON 解析为 Java 和 Kotlin 类
+retrofitCore = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofitScalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit" }
+retrofitMoshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+
+moshi = {module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi"}
+moshiAdapter = {module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi"}
+kotlinxSerializationConverter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "kotlinxSerializationConverter" }
+serializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializationJson" }
+# Retrofit will use okhttp 4 (it has binary capability with okhttp 3)
+# See: https://square.github.io/okhttp/upgrading_to_okhttp_4/
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+okhttpInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+
+## 2、依赖注入
+koin = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+
+## 3、图片加载 (Image Loading)
+glideLib = {module = "com.github.bumptech.glide:glide", version.ref = "glide"}
+glideCompiler = {module = "com.github.bumptech.glide:compiler", version.ref = "glide"}
+picasso = {module = "com.squareup.picasso:picasso", version.ref = "picasso"}
+lottie = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie" }
+coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+
+roundImageView = {module = "com.makeramen:roundedimageview", version.ref = "imageView"}
+circularImage = {module = "com.mikhaellopez:circularimageview", version.ref = "circularImage"}
+
+## 4、本地存储 (Local Storage)
+# 数据库 Room
+roomKtx = { module = "androidx.room:room-ktx", version.ref = "room" }
+roomRuntime = { module = "androidx.room:room-runtime", version.ref = "room" }
+roomCompiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+
+## 5、异步编程 (Asynchronous)
+# 协程
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+# Rx
+rxAndroid3 =  {module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxAndroid"}
+rxJava3 =  {module = "io.reactivex.rxjava3:rxjava", version.ref = "rxJava"}
+rxJava2 =  {module = "io.reactivex.rxjava2:rxkotlin", version.ref = "rxJava2"}
+rxAndroid2 =  {module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxAndroid2"}
+
+## 6、用户界面 (user interface)
+# Androidx + ViewModel + LiveData + LifeCycle + Navigation
+constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintLayout" }
+appCompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
+recyclerView = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerView" }
+coreKtx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+fragmentKtx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
+viewmodelKtx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+livedataKtx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+livedataRuntime = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+navigationFragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+navigationUiKtx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
+
+# Google 推荐
+material = { module = "com.google.android.material:material", version.ref = "material" }
+flexbox = {module = "com.google.android.flexbox:flexbox", version.ref = "flexbox"}
+accompanistFlowLayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanistFlowLayout" }
+#playCore = { module = "com.google.android.play:core", version.ref = "playCore" }
+
+# 下拉刷新
+refreshKernel = {module = "io.github.scwang90:refresh-layout-kernel", version.ref = "refresh"}
+refreshHeader = {module = "io.github.scwang90:refresh-header-classics", version.ref = "refresh"}
+refreshFooter = {module = "io.github.scwang90:refresh-footer-classics", version.ref = "refresh"}
+
+# 轮播图
+bannerViewPager = {module = "com.github.zhpanvip:bannerviewpager", version.ref = "banner"}
+
+# WebView https://github.com/Justson/AgentWeb
+agentWeb = {module = "com.github.Justson.AgentWeb:agentweb-core", version.ref = "agentWeb"}
+
+# 路由
+routerApi = {module = "com.alibaba:arouter-api", version.ref = "router"}
+routerCompiler = {module = "com.alibaba:arouter-compiler", version.ref = "router"}
+
+# 选择器：普通选择器 + 图片选择器
+picker = {module = "com.github.gzu-liyujiang.AndroidPicker:Common", version.ref = "picker"}
+pickerCalendar = {module = "com.github.gzu-liyujiang.AndroidPicker:CalendarPicker", version.ref = "picker"}
+pickerWheel = {module = "com.github.gzu-liyujiang.AndroidPicker:WheelPicker", version.ref = "picker"}
+dateTimePicker = {module = "com.github.loper7:DateTimePicker", version.ref = "dateTimePicker"}
+
+pictureSelector = {module = "io.github.lucksiege:pictureselector", version.ref = "pictureSeletor"}
+pictureUcrop = {module = "io.github.lucksiege:ucrop", version.ref = "pictureSeletorUcrop"}
+
+# https://github.com/alexvasilkov/GestureViews
+gestureView = {module = "com.alexvasilkov:gesture-views", version.ref = "gestureView"}
+photoView = {module = "com.github.chrisbanes:PhotoView", version.ref = "photoView"}
+photoPreview = {module = "com.github.wanggaowan:PhotoPreview", version.ref = "photoPreview"}
+# 图片选择库 https://github.com/esafirm/android-image-picker
+imagePicker = {module = "com.github.esafirm:android-image-picker", version.ref = "imagePicker"}
+
+## 7、响应式编程 (Compose UI)
+toolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+composeUI = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+composeMaterial = { module = "androidx.compose.material3:material3", version.ref = "materialCompose" }
+
+## 8、代码分析&测试 (Code Analysis & Test)
+
+koinNavigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koin" }
+viewBindingPropertyDelegate = { module = "com.github.kirich1409:viewbindingpropertydelegate", version.ref = "viewBindingPropertyDelegate" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
+## 9、代码增强、工具
+longan = {module = "com.github.DylanCaiCoding.Longan:longan", version.ref = "longan"}
+rxTools = {module = "com.github.CHCHCHEN:RxTools", version.ref = "rxTools"}
+longanDesign = {module = "com.github.DylanCaiCoding.Longan:longan-design", version.ref = "longan"}
+# 事件通知库 已经停更 https://github.com/JeremyLiao/LiveEventBus
+eventBus = {module = "io.github.jeremyliao:live-event-bus-x", version.ref = "eventBus"}
+
+## 10、第三方功能
+# 支付：微信 + 支付宝
+#//"tencent-wechat-sdk"   : 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+',//微信sdk,支付登录分享
+wechat = {module = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta", version.ref = "tencent"}
+#//com.alipay.sdk:alipaysdk-android:15.8.11
+alipay = {module = "com.alipay.sdk:alipaysdk-android", version.ref = "alipayv"}
+
+## 11、其它
+searchLayout = {module = "com.vip:search", version.ref = "search"}
+pagerGridLayout = {module = "com.github.shenbengit:PagerGridLayoutManager", version.ref = "pagerGrid"}
+
+ultimateBarX = {module = "com.gitee.zackratos:UltimateBarX", version.ref = "statusBar"}
+
+pwdEditText = {module = "com.github.maning0303:MNPasswordEditText", version.ref = "pwdEditText"}
+pwdKeyBoard = {module = "com.github.wuzhendev:android-xnumberkeyboard", version.ref = "pwdKeyBoard"}
+
+stateLayout = {module = "com.github.liangjingkanji:StateLayout", version.ref = "stateLayout"}
+brv = {module = "com.github.liangjingkanji:BRV", version.ref = "brv"}
+
+zxing = {module = "com.google.zxing:core", version.ref = "zxing"}
+zxingEmbedded = {module = "com.journeyapps:zxing-android-embedded", version.ref = "zxingEmbedded"}
+
+# 权限检查库，PermissionsDispatcher、Dexter（不维护）、EasyPermissions三选一。 https://github.com/permissions-dispatcher/PermissionsDispatcher
+permission = {module = "com.github.permissions-dispatcher:permissionsdispatcher", version.ref = "permission"}
+permissionKtx = {module = "com.github.permissions-dispatcher:ktx", version.ref = "permissionKtx"}
+
+detektFormatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+
+# Test dependencies
+junit = { module = "junit:junit", version.ref = "junit" }
+testCoroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kluent = { module = "org.amshove.kluent:kluent-android", version.ref = "kluent" }
+testRunner = { module = "androidx.test:runner", version.ref = "testRunner" }
+espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+coreTesting = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
+junitJupiterApi = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junitJupiterEngine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+
+[bundles]
+retrofit = ["retrofitCore", "retrofitScalars", "retrofitMoshi", "kotlinxSerializationConverter", "serializationJson", "okhttp", "okhttpInterceptor"]
+koin = ["koin", "koinNavigation"]
+compose = ["composeUI", "toolingPreview", "lottie", "coil"]
+lifecycle = ["viewmodelKtx", "livedataKtx", "livedataRuntime"]
+navigation = ["navigationFragment", "navigationUiKtx"]
+room = ["roomKtx", "roomRuntime"]
+search = ["searchLayout", "flexbox"]
+#router = ["routerApi", "routerCompiler"]
+rxAndroid = ["rxAndroid3", "rxJava3"]
+rxAndroid2 = ["rxAndroid2", "rxJava2"]
+smartRefresh = ["refreshKernel", "refreshHeader", "refreshFooter"]
+glide = ["glideLib", "glideCompiler"]
+moshi = ["moshi", "moshiAdapter"]
+longan = ["longan", "longanDesign"]
+picker = ["picker", "pickerCalendar", "pickerWheel"]
+test = ["testCoroutines", "kluent", "testRunner", "espresso", "mockk", "coreTesting", "junitJupiterApi", "junitJupiterEngine"]
+
+[plugins]
+# Search Gradle Plugins https://plugins.gradle.org/
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-symbolProcessing = { id = "com.google.devtools.ksp", version.ref = "kotlinSymbolProcessing" }
+
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+safeArgs = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
+junit5Android = { id = "de.mannodermaus.android-junit5", version.ref = "androidJUnit5" }
+testLogger = { id = "com.adarshr.test-logger", version.ref = "testLogger" }
